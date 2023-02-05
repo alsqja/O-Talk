@@ -1,7 +1,4 @@
-![header](https://capsule-render.vercel.app/api?type=soft&color=auto&height=100&section=header&text=O-Talk&fontSize=50)
-
-# Ai-filter Face Chat Service with Animation Character  
-<br/>
+![header](https://capsule-render.vercel.app/api?type=waving&color=26BB98&fontColor=auto&height=300&section=header&text=O-Talk&fontSize=90&fontAlignY=38&animation=twinkling&desc=AI-Filter%20Face%20Chat%20Service%20with%20Animation%20Character&descSize=22)  
 
 ## 기능 정리
 - - [ ] **AI 실시간 Face Toonification**
