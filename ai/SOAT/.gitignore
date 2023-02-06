@@ -1,0 +1,4 @@
+*.pt
+*.npz
+__pycache__
+.ipynb_checkpoints
