@@ -41,7 +41,8 @@
   - - [ ] 리뷰 신고 기능
 
 ## DB 스키마
-![O-Talk-DB (5)](https://user-images.githubusercontent.com/91926455/217394694-e35c7dd4-dc30-4f1f-85ed-26ebdf94edb6.png)
+![O-Talk-DB (6)](https://user-images.githubusercontent.com/91926455/217410361-7a2d30eb-2724-4a91-9452-fdc748f1419e.png)
+
 
 ## API
 https://lilac-vest-58c.notion.site/O-Talk-API-8c52ab77fbe847d6a7176127baba090f
