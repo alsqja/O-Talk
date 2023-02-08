@@ -43,7 +43,8 @@
 ## DB 스키마
 ![O-Talk-DB (5)](https://user-images.githubusercontent.com/91926455/217394694-e35c7dd4-dc30-4f1f-85ed-26ebdf94edb6.png)
 
-
+## API
+https://lilac-vest-58c.notion.site/O-Talk-API-8c52ab77fbe847d6a7176127baba090f
 
 ## Wireframe
 [Wireframe](https://github.com/alsqja/O-Talk/wiki/Wireframe)
