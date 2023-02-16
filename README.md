@@ -50,4 +50,5 @@ https://lilac-vest-58c.notion.site/O-Talk-API-8c52ab77fbe847d6a7176127baba090f
 ## Wireframe
 [Wireframe](https://github.com/alsqja/O-Talk/wiki/Wireframe)
 
-
+## Prototype
+[Prototype](https://github.com/alsqja/O-Talk/wiki/Prototype)
