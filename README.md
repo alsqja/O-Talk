@@ -2,8 +2,8 @@
 
 ## 기능 정리
 - - [ ] **AI 실시간 Face Toonification**
-  - - [ ] Face Toonifiacation
-  - - [ ] 실시간 영상처리
+  - - [x] Face Toonifiacation
+  - - [x] 실시간 영상처리
   - - [ ] 최적화
 - - [ ] **Face-Chat**
   - - [ ] CRUD
