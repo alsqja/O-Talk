@@ -86,13 +86,12 @@ def make_image(tensor):
 
 def detectFace(img, mode="loose"):
     face_detector = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_alt.xml")
-    faces = face_detector.detectMultiScale(img, 1.3, 5)  # 얼굴 탐지
+    faces = face_detector.detectMultiScale(img, 1.3, 5)
 
-    if len(faces) > 0:  # 얼굴이 탐지 되었다면
+    if len(faces) > 0:
         face = faces[0]
         face_x, face_y, face_w, face_h = face
         if mode == "loose":
-            # interval = face_x * 0.5
             interval = face_h * 0.3
             face_x -= interval
             face_y -= int(interval * 1.2)  # center의 높이를 좀 더 위로 올리고 싶어서.
@@ -117,9 +116,8 @@ def detectFace(img, mode="loose"):
 
     else:
         # img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-        return None
         # return -1
-        # raise ValueError("No face found in the passed image ")
+        raise Exception("No face is found")
 
 
 if __name__ == "__main__":
@@ -151,7 +149,7 @@ if __name__ == "__main__":
     transform = transforms.Compose(
         [
             transforms.Resize(resize),
-            # transforms.CenterCrop(resize),
+            transforms.CenterCrop(resize),
             transforms.ToTensor(),
             transforms.Normalize([0.5, 0.5, 0.5], [0.5, 0.5, 0.5]),
         ]
@@ -161,7 +159,11 @@ if __name__ == "__main__":
 
     for imgfile in args.files:
         img = cv2.imread(imgfile)
-        face = detectFace(img)
+        try:
+            face = detectFace(img)
+        except Exception as e:
+            print(f"An error occurred in the detectFace function.\n{e} in {imgfile}")
+            exit()
         imgs.append(transform(Image.fromarray(face[:, :, ::-1])))
 
     imgs = torch.stack(imgs, 0).to(device)
