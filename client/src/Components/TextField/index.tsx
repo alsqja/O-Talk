@@ -37,7 +37,7 @@ export const TextField = ({
 
 const InputWrapper = styled.div`
   width: 514px;
-  height: 60px;
+  height: 50px;
   position: relative;
   margin: 15px 0;
   ::after {
@@ -57,7 +57,7 @@ const InputTitle = styled.span`
   position: absolute;
   top: 18px;
   left: 20px;
-  font-size: ${theme.typography.title2};
+  font-size: ${theme.typography.title1};
   transition: 0.3s;
   background-color: white;
   padding: 0 5px;
