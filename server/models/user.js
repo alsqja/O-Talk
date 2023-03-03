@@ -37,12 +37,12 @@ module.exports = (sequelize, DataTypes) => {
       models.users.belongsToMany(models.users, {
         through: 'marks',
         foreignKey: 'user_id',
-        as: 'followers',
+        as: 'markers',
       });
       models.users.belongsToMany(models.users, {
         through: 'marks',
-        foreignKey: 'following_id',
-        as: 'followings',
+        foreignKey: 'marked_id',
+        as: 'markeds',
       });
       models.users.belongsTo(models.images, {
         foreignKey: 'profile',
