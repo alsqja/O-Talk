@@ -1,5 +1,5 @@
 import { TextField } from "../../Components/TextField";
-import theme from "../../styles/theme";
+import theme, { media } from "../../styles/theme";
 import { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Logo from "../Firstpage/headerLogo.svg"
@@ -24,19 +24,18 @@ export const Login = () =>{
   },[navigate])
   return(
     <Wrapper>
-      <img src={Logo}></img>
+      {/* <img src={Logo} className="logo"></img> */}
+      <LogoBox src={Logo}></LogoBox>
       <TextField title="닉네임 입력" value={name} onChange={setName}></TextField>
       <TextField title="비밀번호" value={password} onChange={setPassword} type="password"></TextField>
       <LoginButton onClick={handleLogin}>로그인</LoginButton>
       <SignupContainer>
-        <div>계정이 없으신가요?
-          <span style={{color: theme.palette.black, padding : "5px" , cursor:'pointer', fontWeight : 900}} onClick={handleSignup}>가입하기</span>
-        </div>
+        <div>계정이 없으신가요?</div>
+        <div style={{color: theme.palette.black,padding:"5px",cursor:'pointer', fontWeight : 900}} onClick={handleSignup}>가입하기</div>
       </SignupContainer>
       <InvitationContainer>
-        <div>초대링크가 있으신가요?
-          <span style={{color: theme.palette.black,padding:"5px",cursor:'pointer', fontWeight : 900}} onClick={handleLocation}>초대링크 입력하기</span>
-        </div>
+        <div>초대링크가 있으신가요?</div>
+        <div style={{color: theme.palette.black,padding:"5px",cursor:'pointer', fontWeight : 900}} onClick={handleLocation}>초대링크 입력하기</div>
       </InvitationContainer>
     </Wrapper>
   );
@@ -48,16 +47,29 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: space-around;
   margin-top : 15%;
-  .img{
-    width: 50%;
+`
+const LogoBox = styled.img`
+  ${media.desktop}{
+    width: 514px;
+  }
+  ${media.mobile}{
+    width: 327px;
   }
 `
+
 const LoginButton = styled.button`
-  width : 514px;
-  height: 50px;
+  ${media.desktop}{
+    width: 514px;
+    height: 60px;
+    font-size : ${theme.typography.title1.fontSize}px;
+  }
+  ${media.mobile}{
+    width: 327px;
+    height: 50px;
+    font-size : ${theme.typography.mobileTitle1.fontSize}px;
+  }
   border-radius : 5px;
   background-color: ${theme.palette.primary};
-  font-size :25px;
   font-weight : 900;
   border: 0;
   color: ${theme.palette.complementary};
@@ -65,19 +77,34 @@ const LoginButton = styled.button`
   cursor : pointer;
 `
 const SignupContainer= styled.div`
-  width : 514px;
-  height: 40px;
+  ${media.desktop}{
+    width: 514px;
+    height: 50px;
+    font-size : ${theme.typography.title3.fontSize}px;
+  }
+  ${media.mobile}{
+    width: 327px;
+    height: 50px;
+    font-size : ${theme.typography.mobileTitle2.fontSize}px;
+  }
   display : flex;
   align-items: center;
-  justify-content: space-around;
-  font-size : ${theme.typography.title3}
+  justify-content : center;
   margin-top : 5px;
 `
 const InvitationContainer = styled.div`
-  width : 514px;
-  height: 40px;
+  ${media.desktop}{
+    width: 514px;
+    height: 50px;
+    font-size : ${theme.typography.title3.fontSize}px;
+  }
+  ${media.mobile}{
+    width: 327px;
+    height: 20px;
+    font-size : ${theme.typography.mobileTitle2.fontSize}px;
+  }
   display : flex;
   align-items: center;
-  justify-content: space-around;
-  font-size : ${theme.typography.title3}
+  justify-content: center;
+  font-size : ${theme.typography.title3.fontSize}px;
 `

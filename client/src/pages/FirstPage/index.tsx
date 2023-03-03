@@ -2,7 +2,7 @@ import Logo from "./headerLogo.svg"
 import styled from "styled-components";
 import { TextField } from "../../Components/TextField";
 // import { media } from "../../styles/theme";
-import theme from "../../styles/theme";
+import theme, {media} from "../../styles/theme";
 import { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 export const FirstPage = () => {
@@ -16,7 +16,7 @@ export const FirstPage = () => {
   },[navigate])
   return(
     <Wrapper>
-      <img src={Logo}></img>
+      <LogoBox src={Logo}></LogoBox>
       <TextField title="초대 링크 입력" value={link} onChange={setLink}></TextField>
       <LoginButton onClick={handleLocation}>로그인하고 시작하기</LoginButton>
     </Wrapper>
@@ -29,17 +29,29 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: space-around;
   margin-top : 15%;
-  .img{
-    width: 50%;
+`
+const LogoBox = styled.img`
+  ${media.desktop}{
+    width: 514px;
+  }
+  ${media.mobile}{
+    width: 327px;
   }
 `
 
 const LoginButton = styled.button`
-  width : 512px;
-  height: 50px;
+  ${media.desktop}{
+    width: 514px;
+    height: 60px;
+    font-size : ${theme.typography.title1.fontSize}px;
+  }
+  ${media.mobile}{
+    width: 327px;
+    height: 50px;
+    font-size : ${theme.typography.mobileTitle1.fontSize}px;
+  }
   border-radius : 5px;
   background-color: ${theme.palette.primary};
-  font-size :25px;
   font-weight : 900;
   border: 0;
   color: ${theme.palette.complementary};
