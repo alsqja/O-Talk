@@ -6,6 +6,7 @@ const session = require('express-session');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const passport = require('passport');
+const { sequelize } = require('./models/index');
 
 // const indexRouter = require('./routes');
 // const passportConfig = require('./passport');
@@ -14,6 +15,11 @@ dotenv.config();
 
 const app = express();
 // passportConfig();
+sequelize
+  .sync()
+  .then(() => console.log('connected database'))
+  .catch((err) => console.error('occurred error in database connecting', err));
+
 app.set('port', process.env.PORT || 8080);
 
 app.use(morgan('dev'));
