@@ -41,7 +41,8 @@
   - - [ ] 리뷰 신고 기능
 
 ## DB 스키마
-![O-Talk-DB (6)](https://user-images.githubusercontent.com/91926455/217410361-7a2d30eb-2724-4a91-9452-fdc748f1419e.png)
+![O-Talk-DB (7)](https://user-images.githubusercontent.com/91926455/222620242-606126b9-3324-4f94-b800-d94a5f9a6cd8.png)
+
 
 
 ## API
