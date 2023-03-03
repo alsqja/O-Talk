@@ -1,20 +1,20 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
-// const path = require('path');
+const path = require('path');
 const session = require('express-session');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const passport = require('passport');
 const { sequelize } = require('./models/index');
 
-// const indexRouter = require('./routes');
-// const passportConfig = require('./passport');
+const indexRouter = require('./routes');
+const passportConfig = require('./passport');
 
 dotenv.config();
 
 const app = express();
-// passportConfig();
+passportConfig();
 sequelize
   .sync()
   .then(() => console.log('connected database'))
@@ -50,7 +50,7 @@ app.get('/', (req, res) => {
   res.send('hello world');
 });
 
-// app.use('/', indexRouter);
+app.use('/', indexRouter);
 
 app.use((req, res, next) => {
   const error = new Error(`${req.method} ${req.url} 라우터가 없습니다.`);
