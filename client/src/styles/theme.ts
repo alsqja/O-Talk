@@ -29,7 +29,7 @@ const typography = {
     lineHeight: 1.46,
   },
   title3: {
-    fontSize: 20,
+    fontSize: 15,
     letterSpacing: -0.59,
     lineHeight: 1.5,
   },
@@ -48,6 +48,31 @@ const typography = {
     letterSpacing: -0.37,
     lineHeight: 1.5,
   },
+  mobileTitle1: {
+    fontSize: 20,
+    letterSpacing: -0.54,
+    lineHeight: 1.28,
+  },
+  mobileTitle2: {
+    fontSize: 15,
+    letterSpacing: -0.8,
+    lineHeight: 1.46,
+  },
+  mobileTitle3: {
+    fontSize: 10,
+    letterSpacing: -0.59,
+    lineHeight: 1.5,
+  },
+  mobileBody1: {
+    fontSize: 14,
+    letterSpacing: -0.52,
+    lineHeight: 1.43,
+  },
+  mobileBody2: {
+    fontSize: 12,
+    letterSpacing: -0.45,
+    lineHeight: 1.5,
+  }
 };
 
 const theme = {

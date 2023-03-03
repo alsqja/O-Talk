@@ -1,5 +1,5 @@
 import { TextField } from "../../Components/TextField";
-import theme from "../../styles/theme";
+import theme,{media} from "../../styles/theme";
 import { useCallback, useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import Logo from "../Firstpage/headerLogo.svg"
@@ -34,21 +34,19 @@ export const Signup = () =>{
   }
   return(
     <Wrapper>
-      <img src={Logo}></img>
+      <LogoBox src={Logo}></LogoBox>
       <TextField title="닉네임 입력" value={name} onChange={setName}></TextField>
       <TextField title="비밀번호" value={password} onChange={setPassword} type="password"></TextField>
       <TextField title="비밀번호 확인" value={checkPass} onChange={setCheckPass} type="password" error={error}></TextField>
       <TextField title="핸드폰 번호" value={phoneNum} onChange={setPhoneNum}></TextField>
       <LoginButton onClick={handleLogin}>가입하기</LoginButton>
       <SignupContainer>
-        <div>계정이 있으신가요?
-          <span style={{color: theme.palette.black, padding : "5px" , cursor:'pointer', fontWeight : 900}} onClick={handleLogin}>로그인하기</span>
-        </div>
+        <div>계정이 있으신가요?</div>
+        <div style={{color: theme.palette.black,padding:"5px",cursor:'pointer', fontWeight : 900}} onClick={handleLogin}>로그인 하기</div>
       </SignupContainer>
       <InvitationContainer>
-        <div>초대링크가 있으신가요?
-          <span style={{color: theme.palette.black,padding:"5px",cursor:'pointer', fontWeight : 900}} onClick={handleLocation}>초대링크 입력하기</span>
-        </div>
+        <div>초대링크가 있으신가요?</div>
+        <div style={{color: theme.palette.black,padding:"5px",cursor:'pointer', fontWeight : 900}} onClick={handleLocation}>초대링크 입력하기</div>
       </InvitationContainer>
     </Wrapper>
   );
@@ -59,17 +57,29 @@ const Wrapper = styled.div`
   flex-direction : column;
   align-items: center;
   justify-content: space-around;
-  margin-top : 15%;
-  .img{
-    width: 50%;
+  margin-top: 5%;
+`
+const LogoBox = styled.img`
+  ${media.desktop}{
+    width: 514px;
+  }
+  ${media.mobile}{
+    width: 327px;
   }
 `
 const LoginButton = styled.button`
-  width : 514px;
-  height: 50px;
+  ${media.desktop}{
+    width: 514px;
+    height: 60px;
+    font-size: ${theme.typography.title2.fontSize}px;
+  }
+  ${media.mobile}{
+    width: 327px;
+    height: 50px;
+    font-size: ${theme.typography.mobileTitle1.fontSize}px;
+  }
   border-radius : 5px;
   background-color: ${theme.palette.primary};
-  font-size :25px;
   font-weight : 900;
   border: 0;
   color: ${theme.palette.complementary};
@@ -77,19 +87,32 @@ const LoginButton = styled.button`
   cursor : pointer;
 `
 const SignupContainer= styled.div`
-  width : 514px;
-  height: 40px;
+  ${media.desktop}{
+    width: 514px;
+    height: 50px;
+    font-size : ${theme.typography.title3.fontSize}px;
+  }
+  ${media.mobile}{
+    width: 327px;
+    height: 50px;
+    font-size : ${theme.typography.mobileTitle2.fontSize}px;
+  }
   display : flex;
   align-items: center;
-  justify-content: space-around;
-  font-size : ${theme.typography.title3}
-  margin-top : 5px;
+  justify-content: center;
 `
 const InvitationContainer = styled.div`
-  width : 514px;
-  height: 40px;
+  ${media.desktop}{
+    width: 514px;
+    height: 50px;
+    font-size : ${theme.typography.title3.fontSize}px;
+  }
+  ${media.mobile}{
+    width: 327px;
+    height: 50px;
+    font-size : ${theme.typography.mobileTitle2.fontSize}px;
+  }
   display : flex;
   align-items: center;
-  justify-content: space-around;
-  font-size : ${theme.typography.title3}
+  justify-content: center;
 `

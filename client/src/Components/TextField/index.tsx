@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useRef } from "react";
 import styled from "styled-components";
-import theme from "../../styles/theme";
+import theme, { media } from "../../styles/theme";
 
 interface IProps {
   title: string;
@@ -36,10 +36,18 @@ export const TextField = ({
 };
 
 const InputWrapper = styled.div`
-  width: 514px;
-  height: 50px;
-  position: relative;
-  margin: 15px 0;
+  ${media.desktop}{
+    width: 514px;
+    height: 60px;
+    position: relative;
+    margin: 15px 0;
+  }
+  ${media.mobile}{
+    width: 327px;
+    height: 50px;
+    position: relative;
+    margin: 10px 0;
+  }
   ::after {
     content: "";
     width: 6px;
@@ -55,12 +63,19 @@ const InputWrapper = styled.div`
 
 const InputTitle = styled.span`
   position: absolute;
-  top: 18px;
-  left: 20px;
-  font-size: ${theme.typography.title1};
+  ${media.desktop}{
+    font-size: ${theme.typography.title1};
+    top: 20px;
+    left: 20px;
+  }
+  ${media.mobile}{
+    font-size: ${theme.typography.mobileTitle1};
+    padding-bottome: 3px;
+    top: 15px;
+    left: 20px;
+  }
   transition: 0.3s;
   background-color: white;
-  padding: 0 5px;
   color:${theme.palette.grey}
 `;
 
