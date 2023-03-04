@@ -17,14 +17,6 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      profile: {
-        type: Sequelize.INTEGER,
-        allowNull: true,
-      },
-      basic_profile: {
-        type: Sequelize.INTEGER,
-        allowNull: true,
-      },
       online: {
         type: Sequelize.BOOLEAN,
         allowNull: false,

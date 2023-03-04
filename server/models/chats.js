@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      private: {
+      isPrivate: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
       },

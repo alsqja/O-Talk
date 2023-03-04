@@ -36,6 +36,24 @@ module.exports = {
         type: Sequelize.DATE,
       },
     });
+    await queryInterface.addColumn('users', 'profile', {
+      type: Sequelize.INTEGER,
+      allowNull: true,
+      onDelete: 'CASCADE',
+      references: {
+        model: 'images',
+        key: 'id',
+      },
+    });
+    await queryInterface.addColumn('users', 'basic_profile', {
+      type: Sequelize.INTEGER,
+      allowNull: true,
+      onDelete: 'CASCADE',
+      references: {
+        model: 'images',
+        key: 'id',
+      },
+    });
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('images');
