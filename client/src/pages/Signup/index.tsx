@@ -42,7 +42,7 @@ export const Signup = () =>{
       <LoginButton onClick={handleLogin}>가입하기</LoginButton>
       <SignupContainer>
         <div>계정이 있으신가요?</div>
-        <div style={{color: theme.palette.black,padding:"5px",cursor:'pointer', fontWeight : 900}} onClick={handleLogin}>로그인 하기</div>
+        <div style={{color: theme.palette.black,padding:"5px",cursor:'pointer', fontWeight : 900}} onClick={handleLogin}>로그인하기</div>
       </SignupContainer>
       <InvitationContainer>
         <div>초대링크가 있으신가요?</div>
@@ -90,7 +90,7 @@ const SignupContainer= styled.div`
   ${media.desktop}{
     width: 514px;
     height: 50px;
-    font-size : ${theme.typography.title3.fontSize}px;
+    font-size : ${theme.typography.title4.fontSize}px;
   }
   ${media.mobile}{
     width: 327px;
@@ -105,7 +105,7 @@ const InvitationContainer = styled.div`
   ${media.desktop}{
     width: 514px;
     height: 50px;
-    font-size : ${theme.typography.title3.fontSize}px;
+    font-size : ${theme.typography.title4.fontSize}px;
   }
   ${media.mobile}{
     width: 327px;

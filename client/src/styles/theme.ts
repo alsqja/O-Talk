@@ -29,6 +29,11 @@ const typography = {
     lineHeight: 1.46,
   },
   title3: {
+    fontSize: 20,
+    letterSpacing: -0.59,
+    lineHeight: 1.5,
+  },
+  title4:{
     fontSize: 15,
     letterSpacing: -0.59,
     lineHeight: 1.5,

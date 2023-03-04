@@ -11,9 +11,9 @@ export const Login = () =>{
   const click=()=>{
 
   };
-  const handleLogin=()=>{
-
-  };
+  const handleLogin=useCallback(()=>{
+    navigate('/firstlogin')
+  },[navigate]);
 
   const handleSignup=useCallback(()=>{
     navigate('/signup')
@@ -24,7 +24,6 @@ export const Login = () =>{
   },[navigate])
   return(
     <Wrapper>
-      {/* <img src={Logo} className="logo"></img> */}
       <LogoBox src={Logo}></LogoBox>
       <TextField title="닉네임 입력" value={name} onChange={setName}></TextField>
       <TextField title="비밀번호" value={password} onChange={setPassword} type="password"></TextField>
@@ -80,7 +79,7 @@ const SignupContainer= styled.div`
   ${media.desktop}{
     width: 514px;
     height: 50px;
-    font-size : ${theme.typography.title3.fontSize}px;
+    font-size : ${theme.typography.title4.fontSize}px;
   }
   ${media.mobile}{
     width: 327px;
@@ -96,7 +95,7 @@ const InvitationContainer = styled.div`
   ${media.desktop}{
     width: 514px;
     height: 50px;
-    font-size : ${theme.typography.title3.fontSize}px;
+    font-size : ${theme.typography.title4.fontSize}px;
   }
   ${media.mobile}{
     width: 327px;
@@ -106,5 +105,5 @@ const InvitationContainer = styled.div`
   display : flex;
   align-items: center;
   justify-content: center;
-  font-size : ${theme.typography.title3.fontSize}px;
+  font-size : ${theme.typography.title4.fontSize}px;
 `

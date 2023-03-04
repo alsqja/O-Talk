@@ -1,7 +1,6 @@
 import Logo from "./headerLogo.svg"
 import styled from "styled-components";
 import { TextField } from "../../Components/TextField";
-// import { media } from "../../styles/theme";
 import theme, {media} from "../../styles/theme";
 import { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
