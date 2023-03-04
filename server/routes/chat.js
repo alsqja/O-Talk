@@ -1,10 +1,10 @@
 const express = require('express');
 const controller = require('../controller');
-const { verifyToken } = require('./middlewares');
+const { verifyToken, verifyChat } = require('./middlewares');
 
 const router = express.Router();
 
 router.post('/', verifyToken, controller.chat.post);
-router.put('/:id', verifyToken, controller.chat.put);
+router.put('/:id', verifyToken, verifyChat, controller.chat.put);
 
 module.exports = router;
