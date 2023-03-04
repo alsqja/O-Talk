@@ -1,8 +1,7 @@
-"use strict";
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("chats", {
+    await queryInterface.createTable('chats', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -10,39 +9,39 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       title: {
-        type:Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       contents: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      privite: {
+      private: {
         type: Sequelize.BOOLEAN,
         allowNull: false,
       },
       user_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        onDelete: "CASCADE",
+        onDelete: 'CASCADE',
         references: {
-          model: "users",
-          key: "id",
+          model: 'users',
+          key: 'id',
         },
       },
       createdAt: {
         allowNull: false,
-        defaultValue: Sequelize.literal("NOW()"),
+        defaultValue: Sequelize.literal('NOW()'),
         type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        defaultValue: Sequelize.literal("NOW()"),
+        defaultValue: Sequelize.literal('NOW()'),
         type: Sequelize.DATE,
       },
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("chats");
+    await queryInterface.dropTable('chats');
   },
 };
