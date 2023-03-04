@@ -48,4 +48,15 @@ module.exports = {
       return next(e);
     }
   },
+  delete: async (req, res, next) => {
+    const id = Number(req.params.id);
+
+    try {
+      await chats.destroy({ where: { id } });
+      return res.status(204).send({ message: '삭제되었습니다.' });
+    } catch (e) {
+      console.error(e);
+      return next(e);
+    }
+  },
 };
