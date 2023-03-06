@@ -56,6 +56,8 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
+    await queryInterface.removeColumn('users', 'profile')
+    await queryInterface.removeColumn('users', 'basic_profile')
     await queryInterface.dropTable('images');
   },
 };
