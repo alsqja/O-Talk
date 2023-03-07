@@ -36,7 +36,7 @@ module.exports = {
         type: Sequelize.DATE,
       },
     });
-    await queryInterface.addColumn('users', 'profile', {
+    await queryInterface.addColumn('users', 'profile_id', {
       type: Sequelize.INTEGER,
       allowNull: true,
       onDelete: 'CASCADE',
@@ -45,7 +45,7 @@ module.exports = {
         key: 'id',
       },
     });
-    await queryInterface.addColumn('users', 'basic_profile', {
+    await queryInterface.addColumn('users', 'basic_profile_id', {
       type: Sequelize.INTEGER,
       allowNull: true,
       onDelete: 'CASCADE',
@@ -56,8 +56,8 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.removeColumn('users', 'profile')
-    await queryInterface.removeColumn('users', 'basic_profile')
+    await queryInterface.removeColumn('users', 'profile_id')
+    await queryInterface.removeColumn('users', 'basic_profile_id')
     await queryInterface.dropTable('images');
   },
 };

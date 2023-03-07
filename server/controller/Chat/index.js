@@ -68,7 +68,7 @@ module.exports = {
       const chat = await chats.findOne({
         where: {id},
         include: [
-          {model: users, attributes: ['id', 'name', 'online', 'profile', 'basic_profile'], include: [{model: images}]},
+          {model: users, attributes: ['id', 'name', 'online'], include: [{model: images, as: 'profile'}, {model: images, as: 'basic_profile'}]},
           {model: reviews, attributes: ['id', 'contents', 'stars'], include: [{model: users, attributes: ['id', 'name', 'online'], include: [{model: images}]}]}
         ],
       })

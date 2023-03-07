@@ -45,12 +45,14 @@ module.exports = (sequelize, DataTypes) => {
         as: 'markeds',
       });
       models.users.belongsTo(models.images, {
-        foreignKey: 'profile',
+        as: 'profile',
+        foreignKey: 'profile_id',
         onDelete: 'cascade',
         hooks: true,
       });
       models.users.belongsTo(models.images, {
-        foreignKey: 'basic_profile',
+        as: 'basic_profile',
+        foreignKey: 'basic_profile_id',
         onDelete: 'cascade',
         hooks: true,
       });
@@ -67,11 +69,11 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      profile: {
+      profile_id: {
         type: DataTypes.STRING,
         allowNull: true,
       },
-      basic_profile: {
+      basic_profile_id: {
         type: DataTypes.INTEGER,
         allowNull: true,
       },

@@ -17,8 +17,8 @@ module.exports = {
       id: 1,
       name: 'test',
       password: await hashPass('asd'),
-      profile: null,
-      basic_profile: null,
+      profile_id: null,
+      basic_profile_id: null,
       online: false,
       createdAt: new Date,
       updatedAt: new Date
@@ -27,8 +27,8 @@ module.exports = {
       id: 2,
       name: 'asd',
       password: await hashPass('123'),
-      profile: null,
-      basic_profile: null,
+      profile_id: null,
+      basic_profile_id: null,
       online: false,
       createdAt: new Date,
       updatedAt: new Date
@@ -64,7 +64,7 @@ module.exports = {
       updatedAt: new Date
     },
    ], {})
-    await users.update({profile: 1, basic_profile: 1}, {where: {id: 1}})
+    await users.update({profile_id: 1, basic_profile_id: 1}, {where: {id: 1}})
   },
 
   async down (queryInterface, Sequelize) {
