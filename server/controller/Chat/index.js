@@ -1,5 +1,5 @@
 const { isAuthorized } = require('../../utils/tokenFunctions');
-const { chats } = require('../../models/index');
+const { chats, users, reviews, images } = require('../../models/index');
 
 module.exports = {
   post: async (req, res, next) => {
@@ -52,11 +52,30 @@ module.exports = {
     const id = Number(req.params.id);
 
     try {
-      await chats.destroy({ where: { id } });
+      await chats.destroy({ 
+        where: { id }
+      });
       return res.status(204).send({ message: '삭제되었습니다.' });
     } catch (e) {
       console.error(e);
       return next(e);
     }
   },
+  detail: async (req, res, next) => {
+    const id = Number(req.params.id);
+
+    try {
+      const chat = await chats.findOne({
+        where: {id},
+        include: [
+          {model: users, attribute: ['id', 'name', 'online'], include: [{model: images}]},
+          {model: reviews, attribute: ['id', 'contents', 'stars'], include: [{model: users, attribute: ['id', 'name', 'online'], include: [{model: images}]}]}
+        ]
+      })
+      return res.status(200).sned(chat)
+    } catch (e) {
+      console.error(e)
+      return next(e)
+    }
+  }
 };
