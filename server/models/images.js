@@ -14,10 +14,12 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: 'CASCADE',
       });
       models.images.hasOne(models.users, {
+        as: 'profile',
         foreignKey: 'profile',
         onDelete: 'cascade',
       });
       models.images.hasOne(models.users, {
+        as: 'basic_profile',
         foreignKey: 'basic_profile',
         onDelete: 'cascade',
       });

@@ -68,11 +68,11 @@ module.exports = {
       const chat = await chats.findOne({
         where: {id},
         include: [
-          {model: users, attribute: ['id', 'name', 'online'], include: [{model: images}]},
-          {model: reviews, attribute: ['id', 'contents', 'stars'], include: [{model: users, attribute: ['id', 'name', 'online'], include: [{model: images}]}]}
-        ]
+          {model: users, attributes: ['id', 'name', 'online', 'profile', 'basic_profile'], include: [{model: images}]},
+          {model: reviews, attributes: ['id', 'contents', 'stars'], include: [{model: users, attributes: ['id', 'name', 'online'], include: [{model: images}]}]}
+        ],
       })
-      return res.status(200).sned(chat)
+      return res.status(200).send(chat)
     } catch (e) {
       console.error(e)
       return next(e)
