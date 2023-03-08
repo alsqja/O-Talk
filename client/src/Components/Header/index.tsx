@@ -9,58 +9,62 @@ import cancleIcon from "./cancleIcon.svg"
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isClicked, setIsClicked] =useState(false);
   const navigate = useNavigate();
   const handleUserPageLink = useCallback(()=>{
     navigate('/userInfo')
   },[navigate])
   const handleLogout = useCallback(()=>{
-    navigate('/')
+    navigate('/login')
   },[navigate])
   const handleHome = useCallback(()=>{
     navigate('/home')
   },[navigate])
   return(
-    <Wrapper>
-      <LogoBox src={Logo}></LogoBox>
-      <SearchBar>
-        <SearchIcon src={searchIcon}></SearchIcon>
-        <SearchInput></SearchInput>
-        <CancleIcon src={cancleIcon}></CancleIcon>
-      </SearchBar>
-      <ProfileBox src={profileImg} onClick={()=>setIsOpen(!isOpen)}></ProfileBox>
+    <HeaderContainer>
+      <Wrapper>
+        <LogoBox src={Logo} onClick={handleHome}></LogoBox>
+        <SearchBar>
+          <SearchIcon src={searchIcon}></SearchIcon>
+          <SearchInput></SearchInput>
+          <CancleIcon src={cancleIcon}></CancleIcon>
+        </SearchBar>
+        <ProfileBox src={profileImg} onClick={()=>setIsOpen(!isOpen)}></ProfileBox>
+      </Wrapper>
       {isOpen && (
-        <UserModal>
-          <UserModalFunction onClick={handleUserPageLink}>유저 정보 조회</UserModalFunction>
-          <UserModalFunction onClick={handleLogout}>로그아웃</UserModalFunction>
-        </UserModal>
+      <UserModal>
+        <UserModalFunction onClick={handleUserPageLink}>유저 정보 조회</UserModalFunction>
+        <UserModalFunction onClick={handleLogout}>로그아웃</UserModalFunction>
+      </UserModal>
       )}
-    </Wrapper>
+    </HeaderContainer>
   );
 }
+const HeaderContainer = styled.div`
+  postion : fixed;
+`
 const Wrapper = styled.div`
   ${media.desktop}{
-    width: 1025px;
+    width : 100%;
     height : 60px;
   }
   ${media.mobile}{
-    width: 329px;
+    width : 100%
     height : 30px;
   }
   display : flex;
   align-items : center;
-  justify-content: center;
-  position : fixed;
+  justify-content : center;
 `
 const LogoBox = styled.img`
   ${media.desktop}{
     width: 214px;
   }
   ${media.mobile}{
-    width: 130px;
+    width: 100px;
   }
   position : relative;
   cursor : pointer;
+  margin-right : 7%;
 `
 const SearchBar = styled.div`
   ${media.desktop}{
@@ -68,13 +72,16 @@ const SearchBar = styled.div`
     height : 50px;
   }
   ${media.mobile}{
-    width: 270px;
+    width: 210px;
     height : 30px;
   }
   background-color : #F7E289;
   border-radius : 15px;
   position : relative;
   cursor : text;
+  margin-right : 7%;
+  align-items : center;
+  justify-contents : space-around;
 `
 const ProfileBox = styled.img`
   ${media.desktop}{
@@ -93,7 +100,7 @@ const SearchInput = styled.input`
     height : 50px;
   }
   ${media.mobile}{
-    width: 30px;
+    width: 137px;
     height : 30px;
   }
   background-color : #F7E289;
@@ -101,44 +108,47 @@ const SearchInput = styled.input`
 `
 const SearchIcon = styled.img`
   ${media.desktop}{
-    width: 30px;
+    width: 20px;
     height : 20px;
+    margin-left : 10px;
+    margin-right : 5px;
   }
   ${media.mobile}{
-    width: 30px;
-    height : 30px;
+    width: 15px;
+    height : 15px;
+    margin-left : 5px;
+    margin-right : 2px;
   }
   
 `
 const CancleIcon = styled.img`
   ${media.desktop}{
-    width: 30px;
+    width: 20px;
     height : 20px;
   }
   ${media.mobile}{
-    width: 30px;
-    height : 30px;
+    width: 15px;
+    height : 15px;
   }
+  cursor : pointer;
 `
 
 const UserModal = styled.div`
   ${media.desktop}{
     width: 80px;
     height : 80px;
-    top: 80px;
+    left : 1160px;
   }
   ${media.mobile}{
     width: 40px;
     height : 40px;
-    top : 40px;
+    left : 320px;
   }
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  // grid-column: 11 / span 2;
   position: relative;
-  /* right: calc(-100% + 1200px); */
   padding: 10px 0px;
   background-color: white;
   box-shadow: ${theme.palette.shadow01};
