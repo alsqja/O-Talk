@@ -70,7 +70,7 @@ const InputTitle = styled.span`
   }
   ${media.mobile}{
     font-size: ${theme.typography.mobileTitle1};
-    padding-bottome: 3px;
+    padding-bottom: 3px;
     top: 15px;
     left: 20px;
   }

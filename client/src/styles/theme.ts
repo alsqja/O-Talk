@@ -7,7 +7,7 @@ const palette = {
   disabled: "#BBF0DB",
   white: "#FFFFFF",
   black: "#000000",
-  blackLight: "#535C68",
+  blackLight: "#D0D0D0",
   blackLighter: "#818181",
   grey: "#9E9393",
   grey2: "#333333",
