@@ -1,5 +1,5 @@
-const auth = require('./Auth/index');
-const chat = require('./Chat/index');
+const auth = require("./Auth/index");
+const chat = require("./Chat/index");
 
 module.exports = {
   auth,
